@@ -208,19 +208,19 @@ const server = http.createServer(async (request, response) => {
         "Access-Control-Allow-Origin": "*"
     });
 
-    const url = new URL(request.url, "http://localhost:3000");
-    const gameName = url.searchParams.get("game");
+    const url = new URL(request.url, "https://list-games.onrender.com/?game=");
+    let gameName = url.searchParams.get("game");
+    let bestGame = null;
 
     if (accessToken === null) {
         accessToken = await getAccessToken();
     }
     
+    if (gameName !== null) {
+        let games = await searchIGDB(gameName, accessToken);
 
-    let games = await searchIGDB(gameName, accessToken);
-
-    //console.log(games);
-
-    let bestGame = chooseBestGame(games, gameName);
+        bestGame = chooseBestGame(games, gameName);
+    }
 
     let isValid;
 
