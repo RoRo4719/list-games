@@ -24,8 +24,8 @@ let bonusInput = document.querySelector("#bonusInput");
 
 // Game Settings Variables
 let gameSettings = {
-    timeLimit: 1,
-    timeBonusPerEntry: 4
+    timeLimit: 60,
+    timeBonusPerEntry: 6
 };
 
 //Game State
