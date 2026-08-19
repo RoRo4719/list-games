@@ -188,12 +188,17 @@ const arcadePlatforms = new Set([
     79    // Neo Geo MVS
 ]);
 
+const webPlatforms = new Set([
+    82  //Web Browser
+]);
+
 const acceptedPlatforms = new Set([
     ...computerPlatforms,
     ...consolePlatforms,
     ...mobilePlatforms,
     ...vrPlatforms,
-    ...arcadePlatforms
+    ...arcadePlatforms,
+    ...webPlatforms
 ]);
 
 function hasAcceptedPlatform(game) {
