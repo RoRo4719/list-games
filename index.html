@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Game List</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main class="app">
+            <div id="onboarding">
+                <h1>List Video Games</h1>
+                <p>List as many games as you can before time runs out.</p>
+                <ul>
+                    <li>INFO</li>
+                    <li>Games must be in the IGDB.</li>
+                    <p>
+                    <li>You have a limited time to enter games, but will gain time with each entry. (Check settings to adjust)</li>
+                </ul>
+                <button id= "startButton">Start</button>
+                <button id= "settingsButton">Settings</button>
+
+                <div id="settingsPanel" class="hidden">
+                    <div class="settings-header">
+                        <h2>Settings</h2>
+                    </div>
+
+                    <div class="setting">
+                        <div class="setting-info">
+                            <h3>Starting Time</h3>
+                            <p>How much time you get when the game begins.</p>
+                        </div>
+
+                        <div class="setting-control">
+                            <input type="number" id="timeLimitInput" min="1">
+                            <span>seconds</span>
+                        </div>
+                    </div>
+
+                    <div class="setting">
+                        <div class="setting-info">
+                            <h3>Time Bonus</h3>
+                            <p>Extra time added for each valid game.</p>
+                        </div>
+
+                        <div class="setting-control">
+                            <input type="number" id="bonusInput" min="0">
+                            <span>seconds</span>
+                        </div>
+                    </div>
+
+                    <button id="saveSettings">Save</button>
+                </div>
+
+            </div>
+
+            <div id="game" class="hidden">
+                
+                <div class="game-info">
+                    <p>Score: <span id="scoreDisplay">0</span></p>
+                    <span id="timerDisplay"></span>
+                </div>
+
+                <div class="input-area">
+                    
+                    <p id="duplicate-warning"></p>
+                    <p id="invalid-game-warning"></p>
+                    <input type="text" id="gameInput" placeholder="Type a game...">
+                    
+                </div>                
+
+                <div id="entries"></div>  
+            </div>
+            
+            <div id="game-over" class="hidden">
+
+                <h2>Time's Up!</h2>
+
+                <div class="final-score">
+                    <p>Final Score:</p>
+                    <svg viewBox="0 0 100 100" width="140" height="140" class="score-burst">
+                        <line x1="50" y1="50" x2="53" y2="8"   stroke-width="2.5" />
+                        <line x1="50" y1="50" x2="68" y2="15"  stroke-width="1.5" />
+                        <line x1="50" y1="50" x2="82" y2="35"  stroke-width="3" />
+                        <line x1="50" y1="50" x2="90" y2="55"  stroke-width="1.5" />
+                        <line x1="50" y1="50" x2="80" y2="75"  stroke-width="2" />
+                        <line x1="50" y1="50" x2="62" y2="88"  stroke-width="1.5" />
+                        <line x1="50" y1="50" x2="42" y2="92"  stroke-width="2.5" />
+                        <line x1="50" y1="50" x2="20" y2="82"  stroke-width="1.5" />
+                        <line x1="50" y1="50" x2="8" y2="60"  stroke-width="3" />
+                        <line x1="50" y1="50" x2="12" y2="38"  stroke-width="1.5" />
+                        <line x1="50" y1="50" x2="25" y2="18"  stroke-width="2" />
+                        <line x1="50" y1="50" x2="45" y2="10"  stroke-width="1.5" />
+                    </svg>
+                    <span id="finalScore">0</span>
+                </div>
+                
+                <div class="game-over-actions">
+                    <button id="copyList">Copy List</button>
+                    <button id= "playAgain">Play Again</button>
+                </div>
+
+                <div class="toggle-row">
+                    <input type="checkbox" id="titleToggle">
+                    <label for="titleToggle"></label> 
+                    <p id="toggle-text">Show official titles</p>
+                </div>
+
+                <p id="copy-feedback"></p>
+                
+                <div class="full-list">
+                    <p>Full List</p>
+                    <div id="fullList"></div>
+                </div>
+                
+            </div>
+            
+        </main>
+            
+        <script src="script.js"></script>
+    </body>
+</html>
