@@ -200,7 +200,7 @@ input:focus {
 }
 
 #timerDisplay {
-    font-size: 20px;
+    font-size: 26px;
 }
 
 #invalid-game-warning {
@@ -245,10 +245,10 @@ input:focus {
     display: none;
 }
 
-.timer-warning {
-    font-size: 24px;
+#timerDisplay.timer-warning {
     color: var(--color-primary);
-    transition: all 0.3s ease;
+    transform: scale(2);
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 #game-over h2 {
