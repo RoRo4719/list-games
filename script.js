@@ -199,9 +199,7 @@ async function submitGame() {
 
 // Check input against game database
 async function checkGameDatabase(gameName) {
-    let response = await fetch(
-        "https://list-games.onrender.com/?game=" + encodeURIComponent(gameName)
-    );
+    let response = await fetch("/?game=" + encodeURIComponent(gameName));
     
     let data = await response.json();
 

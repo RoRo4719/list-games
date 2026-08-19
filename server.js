@@ -203,12 +203,35 @@ function hasAcceptedPlatform(game) {
 
 
 const server = http.createServer(async (request, response) => {
+    const url = new URL(request.url, "http://localhost:3000");
+    
+    let gameURLCheck = url.searchParams.get("game");
+
+    if ((url.pathname === "/" && gameURLCheck === null) || url.pathname === "/index.html") {
+        response.writeHead(200, {"Content-Type": "text/html"});
+        response.end(fs.readFileSync("index.html"));
+        return;
+    }
+        
+    if (url.pathname === "/style.css") {
+        response.writeHead(200, { "Content-Type": "text/css" });
+        response.end(fs.readFileSync("style.css"));
+        return;
+    }
+
+    if (url.pathname === "/script.js") {
+        response.writeHead(200, { "Content-Type": "application/javascript" });
+        response.end(fs.readFileSync("script.js"));
+        return;
+    }
+    
+    
     response.writeHead(200, {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
     });
 
-    const url = new URL(request.url, "https://list-games.onrender.com/?game=");
+
     let gameName = url.searchParams.get("game");
     let bestGame = null;
 
